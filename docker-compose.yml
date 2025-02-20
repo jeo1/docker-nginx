@@ -11,12 +11,12 @@ services:
   nginx:
     image: nginx:latest
     pull_policy: always
-    container_name: sonarr-nginx
+    container_name: nginx
     restart: always
     volumes:
       - "${NGINX}:/etc/nginx"
       - "${SSL}:/ssl"
     network_mode: "host"
     depends_on:
-      sonarr-setup:
+      nginx-setup:
         condition: service_completed_successfully
